@@ -136,6 +136,20 @@ def user_stats(df):
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
+def display_raw_data(df):
+    i = 5
+    raw = input("Do you want to display raw data yes or no: ").lower() 
+    pd.set_option('display.max_columns',200)
+
+    while True:            
+        if raw == 'no':
+            break
+        elif raw == 'yes':
+            print(df.head(i))
+            raw = input("Do you want to display raw data yes or no: ") 
+            i += 5
+        else:
+            raw = input("\nYour input is invalid. Please enter only 'yes' or 'no'\n").lower()
             
 def main():
     while True:
